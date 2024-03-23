@@ -16,6 +16,18 @@
             font-size: 18px;
             padding: px;
         }
+        .salary-input:hover {
+        border: 3px solid #af4caf; /* Green border */
+        background-color: #f0fff0; /* Light green background */
+            }
+            .days-present-input:hover {
+                border: 3px solid #2196F3; /* Blue border */
+                background-color: #e0f7fa; /* Light blue background */
+            }
+            .half-days-input:hover {
+                border: 3px solid #FF5722; /* Orange border */
+                background-color: #fff3e0; /* Light orange background */
+            }
         @media (max-width: 768px) {
             .form-control, .btn {
                 width: 100%;
@@ -47,6 +59,10 @@
                         <label for="daysPresent">Days Present:</label>
                         <input type="number" class="form-control font-size" id="daysPresent" placeholder="Enter Days Present">
                     </div>
+                    <div class="form-group">
+                        <label for="HalfDays">Days Half:</label>
+                        <input type="number" class="form-control font-size" id="HalfDays" value="0" placeholder="Enter Days Half">
+                    </div>
                     <button type="submit" class="btn btn-primary btn-block">Calculate</button>
                 </form>
             </div>
@@ -72,9 +88,13 @@
                 var salary = parseInt($("#salary").val());
                 var daysInMonth = parseInt($("#days").val());
                 var daysPresent = parseInt($("#daysPresent").val());
+                var HalfDays = parseInt($("#HalfDays").val());
                 var salaryPerDay = (salary / daysInMonth);
-                var totalSalary = salaryPerDay  * daysPresent;
-                var absent = daysInMonth - daysPresent;
+                var salaryHalfDay = salaryPerDay / 2;
+                var halfcut = salaryHalfDay * HalfDays;
+                var totalSalary =  (salaryPerDay  * daysPresent)-halfcut;
+                var absent = daysInMonth - daysPresent - (HalfDays / 2);
+
                 $("#absent").text("Days : "+ absent);
                 $("#result").text("Rs." + totalSalary.toFixed(2));
                 $("#resultContainer").show();
