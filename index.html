@@ -93,7 +93,7 @@
                 var salaryHalfDay = salaryPerDay / 2;
                 var halfcut = salaryHalfDay * HalfDays;
                 var totalSalary =  (salaryPerDay  * daysPresent)-halfcut;
-                var absent = daysInMonth - daysPresent - (HalfDays / 2);
+                var absent = daysInMonth - daysPresent + (HalfDays / 2);
 
                 $("#absent").text("Days : "+ absent);
                 $("#result").text("Rs." + totalSalary.toFixed(2));
