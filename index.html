@@ -28,10 +28,9 @@
                 border: 3px solid #FF5722; /* Orange border */
                 background-color: #fff3e0; /* Light orange background */
             }
-        body.dark-mode {
+            .activate{
             background-color: #333;
             color: #fff;
-        }
         @media (max-width: 768px) {
             .form-control, .btn {
                 width: 100%;
@@ -41,10 +40,9 @@
 </head>
 <body>
     <center>
+        <nav> <center><button id="btn3" class="btn btn-info " >DARK & LIGHT</button></center> </nav>
     <div class="container">
-        <nav><center><button id="lightModeBtn" class="btn btn-primary">LightMode DarkMode</button></center></nav>
         <h1 class="text-center">Salary Calculator <br>By Het Patel</h1>
-        </div>
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <form id="salaryForm">
@@ -85,15 +83,6 @@
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script>
-        $(document).ready(function(){
-            // Light mode toggle
-            $("#lightModeBtn").click(function() {
-                $("body").toggleClass("dark-mode");
-            });
-            
-        });
-            </script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
     <script>
@@ -114,6 +103,9 @@
                 $("#result").text("Rs." + totalSalary.toFixed(2));
                 $("#resultContainer").show();
             });
+                $("#btn3").click(function(){
+                    $("body").toggleClass("activate")
+                });
         });
     </script>
 </center>
